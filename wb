@@ -1,0 +1,68 @@
+#!/bin/sh -e
+
+VERSION=0.0.1
+
+printf "This package creates a simple work directory for you.\n"
+echo "wb $VERSION"
+
+get_vars() {
+    read -r "What is the package name? : " pkgName
+    read -r "What language do you want to init?
+    1. C
+    2. Go
+    3. Shell: " pkgLang
+}
+
+init_go() {
+    mkdir -p "$pkgName"
+    cd "$pkgName"
+    mkdir -p cmd internal pkg docs examples assets
+
+    echo "package main" > main.go
+    git init .
+
+    echo "Package $pkgName initialised."
+}
+
+init_c() {
+    mkdir -p "$pkgName"
+    cd "$pkgName"
+    mkdir -p src
+
+    touch src/Makefile.am
+    touch src/main.c
+    touch configure.ac
+    touch Makefile.am
+    touch ChangeLog
+
+    git init .
+    echo "#include <stdio.h>" > src/main.c
+
+    echo "Package $pkgName initialised."
+}
+
+init_sh() {
+    mkdir -p "$pkgName"
+    cd "$pkgName"
+    
+    touch "$pkgName".sh
+    chmod +x "$pkgName".sh
+    echo "#!/bin/sh -e" > "$pkgName".sh
+
+    touch Makefile
+    git init .
+
+    echo "Package $pkgName initialised."
+}
+
+get_vars;
+
+
+
+if   [ "$pkgLang" = 1 ] ; then init_c;
+elif [ "$pkgLang" = 2 ] ; then init_go;
+elif [ "$pkgLang" = 3 ] ; then init_sh;
+else
+    echo "You haven't made a choice."
+fi
+
