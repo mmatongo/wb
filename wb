@@ -5,12 +5,51 @@ VERSION=0.0.1
 printf "This package creates a simple work directory for you.\n"
 echo "wb $VERSION"
 
+insta_sire() {
+    read -r "Choose a language to init.
+    1. C
+    2. Go
+    3. Shell : " sireNow
+
+    if   [ "$sireNow" = 1 ] ; then sire_c;
+    elif [ "$sireNow" = 2 ] ; then sire_go;
+    elif [ "$sireNow" = 3 ] ; then sire_sh;
+    else
+        echo "Invalid Choice."
+    fi
+
+}
+
+sire_c() {
+    touch main.c
+    echo "#include <stdio.h>" > main.c
+    echo "#include <stdlib.h>" > main.c
+
+    $EDITOR main.c
+}
+
+sire_go() {
+    touch main.go
+    echo "package main" > main.go
+
+    $EDITOR main.go
+}
+
+sire_sh() {
+    touch main.sh
+    echo "#!/bin/sh -e" > main.sh
+
+    $EDITOR main.sh
+}
+
+
+
 get_vars() {
     read -r "What is the package name? : " pkgName
     read -r "What language do you want to init?
     1. C
     2. Go
-    3. Shell: " pkgLang
+    3. Shell : " pkgLang
 }
 
 init_go() {
@@ -54,10 +93,6 @@ init_sh() {
 
     echo "Package $pkgName initialised."
 }
-
-get_vars;
-
-
 
 if   [ "$pkgLang" = 1 ] ; then init_c;
 elif [ "$pkgLang" = 2 ] ; then init_go;
