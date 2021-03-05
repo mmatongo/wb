@@ -2,8 +2,8 @@
 
 VERSION=0.0.1
 
-printf "This package creates a simple work directory for you.\n"
 echo "wb $VERSION"
+printf "a simple workspace manager.\n"
 
 insta_sire() {
     read -r "Choose a language to init.
