@@ -2,9 +2,11 @@
 
 VERSION=0.0.1
 
-echo "wb $VERSION"
+printf "wb $VERSION\n"
 printf "a simple workspace manager.\n"
 
+sleep 2
+clear
 # 'read -r "bleh bleh" var' doesn't work
 # low key dumb of me to keep forgetting this
 # https://github.com/noirlinux/noirstrap/blob/32d5a1775ec0f65cac7d60a239d3cb97a8d517b7/repograb#L18
@@ -62,7 +64,6 @@ init_sh() {
 }
 
 get_vars;
-#insta_sire
 
 if   [ "$pkgLang" = 1 ] ; then init_c;
 elif [ "$pkgLang" = 2 ] ; then init_go;
