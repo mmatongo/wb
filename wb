@@ -5,20 +5,20 @@ VERSION=0.0.1
 echo "wb $VERSION"
 printf "a simple workspace manager.\n"
 
-insta_sire() {
-    read -r "Choose a language to init.
-    1. C
-    2. Go
-    3. Shell : " sireNow
-
-    if   [ "$sireNow" = 1 ] ; then sire_c;
-    elif [ "$sireNow" = 2 ] ; then sire_go;
-    elif [ "$sireNow" = 3 ] ; then sire_sh;
-    else
-        echo "Invalid Choice."
-    fi
-
-}
+#insta_sire() {
+#    read -r "Choose a language to init.
+#    1. C
+#    2. Go
+#    3. Shell : " sireNow
+#
+#    if   [ "$sireNow" = 1 ] ; then sire_c;
+#    elif [ "$sireNow" = 2 ] ; then sire_go;
+#    elif [ "$sireNow" = 3 ] ; then sire_sh;
+#    else
+#        echo "Invalid Choice."
+#    fi
+#
+#}
 
 sire_c() {
     touch main.c
