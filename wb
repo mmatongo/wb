@@ -42,8 +42,6 @@ sire_sh() {
     $EDITOR main.sh
 }
 
-
-
 get_vars() {
     read -r "What is the package name? : " pkgName
     read -r "What language do you want to init?
@@ -94,10 +92,12 @@ init_sh() {
     echo "Package $pkgName initialised."
 }
 
+get_vars;
+#insta_sire
+
 if   [ "$pkgLang" = 1 ] ; then init_c;
 elif [ "$pkgLang" = 2 ] ; then init_go;
 elif [ "$pkgLang" = 3 ] ; then init_sh;
 else
     echo "You haven't made a choice."
-fi
-
+fi 
