@@ -2,7 +2,7 @@
 
 VERSION=0.0.1
 
-printf "wb $VERSION\n"
+echo "wb $VERSION"
 printf "a simple workspace manager.\n"
 
 sleep 2
