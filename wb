@@ -49,10 +49,11 @@ sire_sh() {
 get_vars() {
     echo "What is the package name? : "
     read -r pkgName
-    read -r "What language do you want to init?
+    echo "What language do you want to init?
     1. C
     2. Go
-    3. Shell : " pkgLang
+    3. Shell : " 
+    read -r pkgLang
 }
 
 init_go() {
